@@ -5,6 +5,13 @@ const config = {
     mongodb: {
         domain: "localhost",
         database: "shaparack"
+    },
+    session: {
+        secret: "simple",
+        redis: {
+            host: "com.petmarket.local",
+            port: "6379"
+        }
     }
 };
 
