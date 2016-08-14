@@ -1,12 +1,24 @@
 var express = require('express');
 var path = require('path');
+import Config from './src/server/config';
+
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+
+var config = Config.getConfig();
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+
+mongoose.connect(`mongodb://${config.mongodb.domain}/${config.mongodb.database}`);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+    console.log("Connected");
+});
 
 var app = express();
 
@@ -16,6 +28,7 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
