@@ -15,9 +15,11 @@ var users = require('./routes/users');
 
 mongoose.connect(`mongodb://${config.mongodb.domain}/${config.mongodb.database}`);
 var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-    console.log("Connected");
+db.on('error', () => {
+    throw new Error("Cannot connect to mongo");
+});
+db.once('open', () => {
+    console.log("Connected to mongo");
 });
 
 var app = express();
