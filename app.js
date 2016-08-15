@@ -21,6 +21,7 @@ var config = Config.getConfig();
 var routes = require('./src/routes/index');
 var users = require('./src/routes/users');
 
+//////////////////////////////////////////////////////////
 mongoose.connect(`mongodb://${config.mongodb.domain}/${config.mongodb.database}`);
 var db = mongoose.connection;
 db.on('error', () => {
@@ -29,6 +30,7 @@ db.on('error', () => {
 db.once('open', () => {
     console.log("Connected to mongo");
 });
+//////////////////////////////////////////////////////////
 
 var app = express();
 

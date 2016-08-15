@@ -12,6 +12,10 @@ const config = {
             host: "com.petmarket.local",
             port: "6379"
         }
+    },
+    cache: {
+        prefix: "default",
+        expire: 5000
     }
 };
 
