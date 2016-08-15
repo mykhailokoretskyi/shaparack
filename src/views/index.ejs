@@ -3,7 +3,7 @@
 
 <head>
 
-  <title>${pageTitle}</title>
+  <title><%= texts.home.title %></title>
         <meta property="og:url"           content="http://www.shaparack.com/" />
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="${pageTitle}" />
@@ -38,7 +38,29 @@
 <header>
 
   <!-- topContactInformation -->
-  <jsp:include page="../modules/topContactInformation.jsp"/>
+  <div class="row contactInformationTop visible-md-block visible-lg-block" >
+    <div class="col-xs-12 col-sm-12 col-md-4 text-left" style="vertical-align: bottom;">
+      <i class="material-icons materialIconsTop">phone</i> +38 093 118 93 93<br>
+      <i class="material-icons materialIconsTop">email</i> shaparackc@yahoo.com<br>
+      <i class="material-icons materialIconsTop">location_on</i><%= texts.menu.location %><br>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 text-center">
+      <img src='/img/footer/logo_shaparack_130_115.png'/>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 text-right">
+      <p><%= texts.menu.followShaparack %></p>
+      <a href="http://www.youtube.com/channel/UCFMpzXhC5qjhh2f0n33Ic2w" target="_blank"><img style="width: 20px;" src="/img/footer/icon_youtube_34x34.png"></a>
+      <a href="http://www.facebook.com/maria.koretskaya" target="_blank"><img style="width: 20px;" src="/img/footer/icon_facebook_34x34.png"></a>
+        <div class="fb-like"
+             data-href="http://www.shaparack.com/"
+             data-layout="button_count"
+             data-action="like"
+             data-show-faces="false"
+             data-share="true"
+             data-width="">
+        </div>
+    </div>
+  </div>
 
   <div style="height: 70px; width: 100%;" class="hidden-md hidden-lg"></div>
   <nav class="navbar navbar-default affix-top" data-spy="affix" data-offset-top="155" style="width: 100%;background-color: rgb(234,234,234);">
@@ -55,8 +77,8 @@
           <img style="width: 40px" src='/img/footer/logo_shaparack_130_115.png'/>
         </div>
         <div class="nav navbar-nav right-block hidden-md hidden-lg" style="float:right; display:inline-block;margin-left: 10px;margin-right: 10px;">
-          <a href="" class="img-language" style="padding-top: 5px;" onclick="document.cookie='LANGUAGE=en'"><img class="img-language" src="/img/icon_usa1.png"></a>
-          <a href="" class="img-language" style="padding-top: 5px;" onclick="document.cookie='LANGUAGE=ua'"><img class="img-language" src="/img/icon_ukraine1.png"></a>
+          <a href="?lang=en" class="img-language" style="padding-top: 5px;" ><img class="img-language" src="/img/icon_usa1.png"></a>
+          <a href="?lang=ua" class="img-language" style="padding-top: 5px;" ><img class="img-language" src="/img/icon_ukraine1.png"></a>
         </div>
       </div>
 
@@ -65,58 +87,58 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav center-block" style="float:none; display: inline-block;">
           <li>
-            <a href='<c:url value="/"/>'>
-              <spring:message code="menu.home"/>
+            <a href='/'>
+              <%= texts.menu.home %> 
             </a>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><spring:message code="menu.persianCats"/> <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= texts.menu.persianCats %>  <span class="caret"></span></a>
             <ul class="dropdown-menu" aria-labelledby="Persian cats">
-              <li><a href='/browse?profile=persianMale"'><spring:message code="menu.catsDropdown.males" /></a></li>
-              <li><a href='/browse?profile=persianFemale'><spring:message code="menu.catsDropdown.females" /></a></li>
-              <li><a href='/browse?profile=persianNewBorn'><spring:message code="menu.catsDropdown.newBorn" /></a></li>
-              <li><a href='/browse?profile=persianForSale'><spring:message code="menu.catsDropdown.forSale" /></a></li>
-              <li><a href='/browse?profile=persianMyStars'><spring:message code="menu.catsDropdown.myStars" /></a></li>
-              <li><a href='/catShows'><spring:message code="menu.catsDropdown.shows" /></a></li>
+              <li><a href='/browse?profile=persianMale"'><%= texts.menu.catsDropdown.males %></a></li>
+              <li><a href='/browse?profile=persianFemale'><%= texts.menu.catsDropdown.females %></a></li>
+              <li><a href='/browse?profile=persianNewBorn'><%= texts.menu.catsDropdown.newBorn %></a></li>
+              <li><a href='/browse?profile=persianForSale'><%= texts.menu.catsDropdown.forSale %></a></li>
+              <li><a href='/browse?profile=persianMyStars'><%= texts.menu.catsDropdown.myStars %></a></li>
+              <li><a href='/catShows'><%= texts.menu.catsDropdown.shows %></a></li>
             </ul>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><spring:message code="menu.exoticCats" /> <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= texts.menu.exoticCats %> <span class="caret"></span></a>
             <ul class="dropdown-menu" aria-labelledby="Persian cats">
-              <li><a href='/browse?profile=exoticMale'><spring:message code="menu.catsDropdown.males" /></a></li>
-              <li><a href='/browse?profile=exoticFemale'><spring:message code="menu.catsDropdown.females" /></a></li>
-              <li><a href='/browse?profile=exoticNewBorn'><spring:message code="menu.catsDropdown.newBorn" /></a></li>
-              <li><a href='/browse?profile=exoticForSale'><spring:message code="menu.catsDropdown.forSale" /></a></li>
-              <li><a href='/browse?profile=exoticMyStars'><spring:message code="menu.catsDropdown.myStars" /></a></li>
-              <li><a href='/catShows'><spring:message code="menu.catsDropdown.shows" /></a></li>
+              <li><a href='/browse?profile=exoticMale'><%= texts.menu.catsDropdown.males %></a></li>
+              <li><a href='/browse?profile=exoticFemale'><%= texts.menu.catsDropdown.females %></a></li>
+              <li><a href='/browse?profile=exoticNewBorn'><%= texts.menu.catsDropdown.newBorn %></a></li>
+              <li><a href='/browse?profile=exoticForSale'><%= texts.menu.catsDropdown.forSale %></a></li>
+              <li><a href='/browse?profile=exoticMyStars'><%= texts.menu.catsDropdown.myStars %></a></li>
+              <li><a href='/catShows'><%= texts.menu.catsDropdown.shows %></a></li>
             </ul>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><spring:message code="menu.scottishCats" /> <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= texts.menu.scottishCats %> <span class="caret"></span></a>
             <ul class="dropdown-menu" aria-labelledby="Persian cats">
-              <li><a href='/browse?profile=scottishMale'><spring:message code="menu.catsDropdown.males" /></a></li>
-              <li><a href='/browse?profile=scottishFemale'><spring:message code="menu.catsDropdown.females" /></a></li>
-              <li><a href='/browse?profile=scottishNewBorn'><spring:message code="menu.catsDropdown.newBorn" /></a></li>
-              <li><a href='/browse?profile=scottishForSale'><spring:message code="menu.catsDropdown.forSale" /></a></li>
-              <li><a href='/browse?profile=scottishMyStars'><spring:message code="menu.catsDropdown.myStars" /></a></li>
-              <li><a href='/catShows'><spring:message code="menu.catsDropdown.shows" /></a></li>
+              <li><a href='/browse?profile=scottishMale'><%= texts.menu.catsDropdown.males %></a></li>
+              <li><a href='/browse?profile=scottishFemale'><%= texts.menu.catsDropdown.females %></a></li>
+              <li><a href='/browse?profile=scottishNewBorn'><%= texts.menu.catsDropdown.newBorn %></a></li>
+              <li><a href='/browse?profile=scottishForSale'><%= texts.menu.catsDropdown.forSale %></a></li>
+              <li><a href='/browse?profile=scottishMyStars'><%= texts.menu.catsDropdown.myStars %></a></li>
+              <li><a href='/catShows'><%= texts.menu.catsDropdown.shows %></a></li>
             </ul>
           </li>
           <li>
             <a href='/contacts'>
-              <spring:message code="menu.contacts"/>
+              <%= texts.menu.contacts %> 
             </a>
           </li>
           <li>
             <a href='/articles'>
-              <spring:message code="menu.articles"/>
+              <%= texts.menu.articles %> 
             </a>
           </li>
           <li class="hidden-xs hidden-sm">
-            <a class="img-language" style="padding-top: 5px;" href="" onclick="document.cookie='LANGUAGE=en'"><img src="/img/icon_usa1.png"></a>
+            <a class="img-language" style="padding-top: 5px;" href="?lang=en"><img src="/img/icon_usa1.png"></a>
           </li>
           <li class="hidden-xs hidden-sm">
-            <a class="img-language" style="padding-top: 5px;" href="" onclick="document.cookie='LANGUAGE=ua'"><img src="/img/icon_ukraine1.png"></a>
+            <a class="img-language" style="padding-top: 5px;" href="?lang=ua" ><img src="/img/icon_ukraine1.png"></a>
           </li>
         </ul>
       </div><!-- /.navbar-collapse -->
@@ -139,20 +161,30 @@
 
 <div id="main-content">
   <div class="page-header mgTop20">
-            <span class="welcome"><spring:message code="home.welcome"/><br/>
-                <span class="text-shadow font47px">
-                    <spring:message code="home.shaparackCattery"/><br/>
-                    <spring:message code="home.catBreeds"/><br/>
-                </span>
-				<span><spring:message code="info.topic.2" /></span>
+    <span class="welcome"><%= texts.home.welcome %> <br/>
+      <span class="text-shadow font47px">
+        <%= texts.home.shaparackCattery %> <br/>
+        <%= texts.home.catBreeds %> <br/>
+      </span>
+      <span><%= texts.info.topic[2] %></span>
+    </span>
   </div>
 </div>
 <div class="container-gallery">
   <div class="gallery center-block hidden-xs hidden-sm" style="margin-bottom: 0px;">
-
+    <% mainGalleryImages.forEach(function(image, index){ %>
+      <div class="item  col-xs-4">
+        <img src='<%= image.path %>/<%= image.name %>'/>
+        <div class="grayouted"></div>
+      </div>
+    <% }) %>
   </div>
   <div class="gallery-mob center-block hidden-md hidden-lg">
-
+    <% mainGalleryImages.forEach(function(image, index){ %>
+      <div class="item  col-xs-10 col-xs-offset-1" >
+        <img src='<%= image.path %>/<%= image.name %>'/>
+      </div>
+    <% }) %>
   </div>
 </div>
 
@@ -189,6 +221,198 @@
 </script>
 
 <div class="clearfix"></div>
+<!-- Benefits -->
+<div class="benefits" style="background-color: white; padding-bottom: 20px;">
+  <div class="row" style="margin-bottom: 20px; margin-top: 20px;">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <h3 class="welcome text-shadow font47px"><%= texts.benefits.label %></h3>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+  <div class="row" style="margin-top: 40px; margin-bottom: 20px;">
+    <div class="col-xs-12 col-sm-12 col-md-4 text-center">
+      <img src='/img/footer/cfa_logo_708x774.png' style="width: 60px;"/></br></br>
+      <span class="benefitsText"><%= texts.benefits.cfa %></span>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 text-center">
+      <img src='/img/footer/royal_logo.png' style="width: 220px;"/></br></br>
+      <span class="benefitsText"><%= texts.benefits.food %></span>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 text-center">
+      <img src='/img/footer/rolandus_logo_496x636.png' style="width: 52px;"/></br></br>
+      <span class="benefitsText"><%= texts.benefits.rui %></span>
+    </div>
+
+  </div>
+  <div class="row" style="margin-top: 40px;">
+    <div class="col-xs-12 col-sm-12 col-md-4 text-center">
+      <i class="material-icons benefitsText" style="font-size: 60px;">face</i></br></br>
+      <span class="benefitsText"><%= texts.benefits.star %></span>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 text-center">
+      <i class="material-icons benefitsText" style="font-size: 60px;">local_pharmacy</i></br></br>
+      <span class="benefitsText"><%= texts.benefits.health %></span>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 text-center">
+      <i class="material-icons benefitsText" style="font-size: 60px;">phone_in_talk</i></br></br>
+      <span class="benefitsText"><%= texts.benefits.support %></span>
+    </div>
+  </div>
+</div>
+<!-- END Benefits -->
+
+<!-- Happy clients -->
+<div class="row">
+  <div class="col-xs-12 text-center mgBot20">
+    <h3 class="welcome text-shadow font47px"><%= texts.home.happyClients %></h3>
+  </div>
+  <div class="col-xs-10 col-xs-offset-1 happyClientsContainer">
+    <div class="col-xs-12 col-md-4 happyClientsItem">
+      <div class="thumbnail">
+        <img src="/img/happyClients/client_1.jpg">
+        <div class="caption">
+          <h3>Linda and Hilda Naamani, Cattery "Munchland"</h3>
+          <p>
+            "I would like to thank Maria Koretskaya from "Shaparack" cattery. She is an amazing breeder and good friend. I have 4 of her cats and they reached in perfect condition."
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4 happyClientsItem">
+      <div class="thumbnail">
+        <img src="/img/happyClients/client_2.jpg">
+        <div class="caption">
+          <h3>GCH CFA Shaparack Rada with new owner</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4 happyClientsItem">
+      <div class="thumbnail">
+        <img src="/img/happyClients/client_3.jpg">
+        <div class="caption">
+          <h3>Hope McKeel Gonano, Cattery "Laureden"</h3>
+          <p>
+            "I was impressed with Zoe from the moment she was hand delivered to me. She came clean & healthy. She has produced some beautiful kittens, 3 grands, 1 of which is now siring."
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- END Happy clients -->
+
+<!-- For sale gallery -->
+<% if (catsForSale && catsForSale.length > 0) { %>
+  <div class="row catForSale" style="background-color: rgba(0,0,0,0.79); color: #ddd;">
+    <div class="col-xs-12 text-center mgBot20">
+      <h3 class="welcome text-shadow font47px"><%= texts.home.forSale %></h3>
+    </div>
+    <div class="col-xs-10 col-xs-offset-1 forSaleGallery">
+      <% for(var i = 0; i < catsForSale.length; ++i) { %>
+        <% var cat = catsForSale[i] %>
+        <div class="col-sm-6 col-md-6 forSaleItem">
+          <div class="thumbnail">
+            <img src="<%= cat.images[0].path %>/<%= cat.images[0].name %>" alt="<%= cat.name %>">
+            <div class="caption">
+              <h3><%= cat.name %></h3>
+              <p>
+                <a href="/cat/<%= cat.id %>" class="btn btn-primary" role="button">Read more</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </div>
+  <script>
+    jQuery(document).ready(function(){
+      var slidesToShow = $(document).width() > 992 ? 4 : 1;
+
+      $('.forSaleGallery').slick({
+        centerMode: true,
+        arrows: true,
+        slidesToShow: slidesToShow,
+        autoplay: true,
+        autoplaySpeed: 2500,
+        speed: 500,
+        variableWidth: false,
+        accessibility: true,
+        dots: false,
+        focusOnSelect: true,
+        centerPadding: '0px'
+      });
+    });
+  </script>
+<% } %>
+<!-- END For sale gallery -->
+
+<!-- About us -->
+<div class="row white" style="font-weight: 600;">
+  <div class="col-xs-12 text-center mgBot20">
+    <h3 class="welcome text-shadow font47px"><%= texts.home.aboutUs.header %></h3>
+  </div>
+  <div class="col-xs-10 col-xs-offset-1 aboutUsContainer">
+    <div class="row vertical-align">
+      <div class="col-xs-12 col-md-4">
+        <img src="/img/information/maria.jpg" alt=""/>
+      </div>
+      <div class="col-xs-12 col-md-8">
+        <%= texts.home.aboutUs.text[1] %>
+      </div>
+    </div>
+    <div class="row vertical-align hidden-xs hidden-sm">
+      <div class="col-xs-12 col-md-8">
+        <p><%= texts.home.aboutUs.text[2] %></p>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <img src="/img/information/cattery.jpg" alt=""/>
+      </div>
+    </div>
+    <div class="row vertical-align hidden-md hidden-lg">
+      <div class="col-xs-12 col-md-4">
+        <img src="/img/information/cattery.jpg" alt=""/>
+      </div>
+      <div class="col-xs-12 col-md-8">
+        <p><%= texts.home.aboutUs.text[2] %></p>
+      </div>
+    </div>
+    <div class="row vertical-align">
+      <div class="col-xs-12 col-md-4">
+        <img src="/img/information/page_2_4.jpg" alt=""/>
+      </div>
+      <div class="col-xs-12 col-md-8">
+        <%= texts.home.aboutUs.text[3] %>
+      </div>
+    </div>
+    <div class="row vertical-align hidden-xs hidden-sm">
+      <div class="col-xs-12 col-md-8">
+        <%= texts.home.aboutUs.text[4] %>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <img src="/img/information/page_2_3.jpg" alt=""/>
+      </div>
+    </div>
+    <div class="row vertical-align hidden-md hidden-lg">
+      <div class="col-xs-12 col-md-4">
+        <img src="/img/information/page_2_3.jpg" alt=""/>
+      </div>
+      <div class="col-xs-12 col-md-8">
+        <%= texts.home.aboutUs.text[4] %>
+      </div>
+    </div>
+    <div class="row vertical-align">
+      <div class="col-xs-12 col-md-4">
+        <img src="/img/information/page_2_2.jpg" alt=""/>
+      </div>
+      <div class="col-xs-12 col-md-8">
+        <%= texts.home.aboutUs.text[5] %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END About us -->
 
 <footer class="page-footer">
   <div class="container-fluid">
@@ -199,39 +423,39 @@
       <div class="col-md-3 col-md-offset-1 col-xs-6 col-xs-offset-2" style="height: 135px; padding-top: 25px;">
         <i class="material-icons materialIconsTop">phone</i> +38 093 118 93 93<br>
         <i class="material-icons materialIconsTop">email</i> <a href="mailto:shaparackc@yahoo.com">shaparackc@yahoo.com</a><br>
-        <i class="material-icons materialIconsTop">location_on</i><spring:message code="menu.location"/><br>
+        <i class="material-icons materialIconsTop">location_on</i><%= texts.menu.location %> <br>
       </div>
       <div class="col-md-2 col-xs-4">
         <h5 class="white-text">Persian cats</h5>
         <ul class="" aria-labelledby="Persian cats">
-          <li><a href='/browse?profile=persianMale"'><spring:message code="menu.catsDropdown.males" /></a></li>
-          <li><a href='/browse?profile=persianFemale'><spring:message code="menu.catsDropdown.females" /></a></li>
-          <li><a href='/browse?profile=persianNewBorn'><spring:message code="menu.catsDropdown.newBorn" /></a></li>
-          <li><a href='/browse?profile=persianForSale'><spring:message code="menu.catsDropdown.forSale" /></a></li>
-          <li><a href='/browse?profile=persianMyStars'><spring:message code="menu.catsDropdown.myStars" /></a></li>
-          <li><a href='/catShows'><spring:message code="menu.catsDropdown.shows" /></a></li>
+          <li><a href='/browse?profile=persianMale"'><%= texts.menu.catsDropdown.males %></a></li>
+          <li><a href='/browse?profile=persianFemale'><%= texts.menu.catsDropdown.females %></a></li>
+          <li><a href='/browse?profile=persianNewBorn'><%= texts.menu.catsDropdown.newBorn %></a></li>
+          <li><a href='/browse?profile=persianForSale'><%= texts.menu.catsDropdown.forSale %></a></li>
+          <li><a href='/browse?profile=persianMyStars'><%= texts.menu.catsDropdown.myStars %></a></li>
+          <li><a href='/catShows'><%= texts.menu.catsDropdown.shows %></a></li>
         </ul>
       </div>
       <div class="col-md-2 col-xs-4">
         <h5 class="white-text">Exotic cats</h5>
         <ul class="" aria-labelledby="Exotic cats">
-          <li><a href='/browse?profile=exoticMale'><spring:message code="menu.catsDropdown.males" /></a></li>
-          <li><a href='/browse?profile=exoticFemale'><spring:message code="menu.catsDropdown.females" /></a></li>
-          <li><a href='/browse?profile=exoticNewBorn'><spring:message code="menu.catsDropdown.newBorn" /></a></li>
-          <li><a href='/browse?profile=exoticForSale'><spring:message code="menu.catsDropdown.forSale" /></a></li>
-          <li><a href='/browse?profile=exoticMyStars'><spring:message code="menu.catsDropdown.myStars" /></a></li>
-          <li><a href='/catShows'><spring:message code="menu.catsDropdown.shows" /></a></li>
+          <li><a href='/browse?profile=exoticMale'><%= texts.menu.catsDropdown.males %></a></li>
+          <li><a href='/browse?profile=exoticFemale'><%= texts.menu.catsDropdown.females %></a></li>
+          <li><a href='/browse?profile=exoticNewBorn'><%= texts.menu.catsDropdown.newBorn %></a></li>
+          <li><a href='/browse?profile=exoticForSale'><%= texts.menu.catsDropdown.forSale %></a></li>
+          <li><a href='/browse?profile=exoticMyStars'><%= texts.menu.catsDropdown.myStars %></a></li>
+          <li><a href='/catShows'><%= texts.menu.catsDropdown.shows %></a></li>
         </ul>
       </div>
       <div class="col-md-2 col-xs-4">
         <h5 class="white-text">Scottish cats</h5>
         <ul class="" aria-labelledby="Scottish cats">
-          <li><a href='/browse?profile=scottishMale'><spring:message code="menu.catsDropdown.males" /></a></li>
-          <li><a href='/browse?profile=scottishFemale'><spring:message code="menu.catsDropdown.females" /></a></li>
-          <li><a href='/browse?profile=scottishNewBorn'><spring:message code="menu.catsDropdown.newBorn" /></a></li>
-          <li><a href='/browse?profile=scottishForSale'><spring:message code="menu.catsDropdown.forSale" /></a></li>
-          <li><a href='/browse?profile=scottishMyStars'><spring:message code="menu.catsDropdown.myStars" /></a></li>
-          <li><a href='/catShows'><spring:message code="menu.catsDropdown.shows" /></a></li>
+          <li><a href='/browse?profile=scottishMale'><%= texts.menu.catsDropdown.males %></a></li>
+          <li><a href='/browse?profile=scottishFemale'><%= texts.menu.catsDropdown.females %></a></li>
+          <li><a href='/browse?profile=scottishNewBorn'><%= texts.menu.catsDropdown.newBorn %></a></li>
+          <li><a href='/browse?profile=scottishForSale'><%= texts.menu.catsDropdown.forSale %></a></li>
+          <li><a href='/browse?profile=scottishMyStars'><%= texts.menu.catsDropdown.myStars %></a></li>
+          <li><a href='/catShows'><%= texts.menu.catsDropdown.shows %></a></li>
         </ul>
       </div>
     </div>
@@ -240,10 +464,10 @@
     <div class="container-fluid">
       <div class="row mgTop15">
         <div class="col-xs-12 col-md-6 copyrightRight-md">
-          Copyright © 2015 "Shaparack" cattery
+          Copyright © 2015-2016 "Shaparack" cattery
         </div>
         <div class="col-xs-12 col-md-6 copyrightLeft-md">
-          <spring:message code="footer.designedBy"/>
+          <%= texts.footer.designedBy %> 
           <a href="http://www.studio-newweb.com" target="_blank">studio NEWWEB</a>
         </div>
       </div>
@@ -254,51 +478,51 @@
 <div class="pulse1 hidden-xs hidden-sm" style="display: none;"></div>
 
 <script>
-  $(window).scroll(function() {
-    if ($(window).scrollTop() > 400) {
-      $('.pulse1').show();
-    } else {
-      $('.pulse1').hide();
-    }
-  });
+//  $(window).scroll(function() {
+//    if ($(window).scrollTop() > 400) {
+//      $('.pulse1').show();
+//    } else {
+//      $('.pulse1').hide();
+//    }
+//  });
 </script>
 <div class="pulse2 hidden-xs hidden-sm" style="display: none;"></div>
 <script>
-  $(window).scroll(function() {
-    if ($(window).scrollTop() > 400) {
-      $('.pulse2').show();
-    } else {
-      $('.pulse2').hide();
-    }
-  });
+//  $(window).scroll(function() {
+//    if ($(window).scrollTop() > 400) {
+//      $('.pulse2').show();
+//    } else {
+//      $('.pulse2').hide();
+//    }
+//  });
 </script>
 <div class="go-to-contacts hidden-xs hidden-sm" style="display: none;">
   <a href='/contacts' style="font-size: 30px;color: orange;font-weight: 600;"><i class="material-icons go-to-contactsIcon" style="font-size: 60px;color: orange;">email</i></a>
 </div>
-<c:if test='${pageType != "contacts"}'>
-  <script>
-    $(window).scroll(function() {
-      if ($(window).scrollTop() > 400) {
-        $('.go-to-contacts').show();
-      } else {
-        $('.go-to-contacts').hide();
-      }
-    });
-  </script>
-</c:if>
+<!--<c:if test='${pageType != "contacts"}'>-->
+  <!--<script>-->
+    <!--$(window).scroll(function() {-->
+      <!--if ($(window).scrollTop() > 400) {-->
+        <!--$('.go-to-contacts').show();-->
+      <!--} else {-->
+        <!--$('.go-to-contacts').hide();-->
+      <!--}-->
+    <!--});-->
+  <!--</script>-->
+<!--</c:if>-->
 <div class="go-to-top hidden-xs hidden-sm" style="display: none;"></div>
 <script>
-  $("div.go-to-top").click(function() {
-    $("html, body").animate({ scrollTop: 0 }, "slow");
-    return false;
-  });
-  $(window).scroll(function() {
-    if ($(window).scrollTop() > 400) {
-      $('div.go-to-top').show();
-    } else {
-      $('div.go-to-top').hide();
-    }
-  });
+//  $("div.go-to-top").click(function() {
+//    $("html, body").animate({ scrollTop: 0 }, "slow");
+//    return false;
+//  });
+//  $(window).scroll(function() {
+//    if ($(window).scrollTop() > 400) {
+//      $('div.go-to-top').show();
+//    } else {
+//      $('div.go-to-top').hide();
+//    }
+//  });
 </script>
 
 </body>

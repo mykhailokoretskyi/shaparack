@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 import Config from './src/server/config';
 
+var i18n=require("i18n-express");
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var redis   = require("redis");
@@ -56,6 +57,13 @@ app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(i18n({
+    translationsPath: path.join(__dirname, 'i18n'),
+    siteLangs: ["en","ua"],
+    cookieLangName: "LANGUAGE",
+    paramLangName: "lang",
+    defaultLang: "en"
+}));
 
 // passport config
 passport.use(new LocalStrategy(Account.authenticate()));
