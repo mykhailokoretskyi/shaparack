@@ -8,7 +8,7 @@ export default class Home extends BaseController {
     }
 
     handler(req, res, next) {
-        res.render('index', {
+        res.render('home', {
             title: 'Express',
             mainGalleryImages: [
                 {
