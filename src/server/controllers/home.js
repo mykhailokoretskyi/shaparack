@@ -1,6 +1,8 @@
 'use strict';
 
 import BaseController from './baseController';
+import Image from '../models/mysql/image';
+import Cat from '../models/mysql/cat';
 
 export default class Home extends BaseController {
     constructor() {
@@ -8,88 +10,19 @@ export default class Home extends BaseController {
     }
 
     handler(req, res, next) {
-        res.render('home', {
-            title: 'Express',
-            mainGalleryImages: [
-                {
-                    path: "/img/happyClients",
-                    name: "client_3.jpg"
-                },
-                {
-                    path: "/img/happyClients",
-                    name: "client_3.jpg"
-                },
-                {
-                    path: "/img/happyClients",
-                    name: "client_3.jpg"
-                },
-                {
-                    path: "/img/happyClients",
-                    name: "client_3.jpg"
-                }
-            ],
-            catsForSale: [
-                {
-                    id: 1,
-                    name: "Mock cat",
-                    images: [
-                        {
-                            path: "/img/happyClients",
-                            name: "client_3.jpg"
-                        }
-                    ]
-                },
-                {
-                    id: 1,
-                    name: "Mock cat",
-                    images: [
-                        {
-                            path: "/img/happyClients",
-                            name: "client_3.jpg"
-                        }
-                    ]
-                },
-                {
-                    id: 1,
-                    name: "Mock cat",
-                    images: [
-                        {
-                            path: "/img/happyClients",
-                            name: "client_3.jpg"
-                        }
-                    ]
-                },
-                {
-                    id: 1,
-                    name: "Mock cat",
-                    images: [
-                        {
-                            path: "/img/happyClients",
-                            name: "client_3.jpg"
-                        }
-                    ]
-                },
-                {
-                    id: 1,
-                    name: "Mock cat",
-                    images: [
-                        {
-                            path: "/img/happyClients",
-                            name: "client_3.jpg"
-                        }
-                    ]
-                },
-                {
-                    id: 1,
-                    name: "Mock cat",
-                    images: [
-                        {
-                            path: "/img/happyClients",
-                            name: "client_3.jpg"
-                        }
-                    ]
-                }
-            ]
+        const promises = [
+            Image.loadImagesForHomeGallery(),
+            Cat.loadCatsForSale()
+        ];
+
+        Promise.all(promises).then(values => {
+            const pageData = {
+                title: 'Express',
+                mainGalleryImages: values[0],
+                catsForSale: values[1]
+            };
+
+            res.render('home', pageData);
         });
     }
 }

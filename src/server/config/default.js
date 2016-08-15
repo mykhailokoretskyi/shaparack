@@ -16,6 +16,14 @@ const config = {
     cache: {
         prefix: "default",
         expire: 5000
+    },
+    mysql: {
+        connection: {
+            host: "localhost",
+            user: "shaparack",
+            password: "shaparack",
+            database: "shaparack"
+        }
     }
 };
 
