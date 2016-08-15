@@ -1,0 +1,87 @@
+<header>
+
+    <%- include('../modules/topContactInformation') %>
+
+    <div style="height: 70px; width: 100%;" class="hidden-md hidden-lg"></div>
+    <nav class="navbar navbar-default affix-top" data-spy="affix" data-offset-top="155" style="width: 100%;background-color: rgb(234,234,234);">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed pull-left" style="margin-left: 15px;" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="nav navbar-nav center-block hidden-md hidden-lg" style="float:none; display:inline-block;margin-left: 10px;margin-right: 10px;">
+                    <img style="width: 40px" src='/img/footer/logo_shaparack_130_115.png'/>
+                </div>
+                <div class="nav navbar-nav right-block hidden-md hidden-lg" style="float:right; display:inline-block;margin-left: 10px;margin-right: 10px;">
+                    <a href="?lang=en" class="img-language" style="padding-top: 5px;" ><img class="img-language" src="/img/icon_usa1.png"></a>
+                    <a href="?lang=ua" class="img-language" style="padding-top: 5px;" ><img class="img-language" src="/img/icon_ukraine1.png"></a>
+                </div>
+            </div>
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav center-block" style="float:none; display: inline-block;">
+                    <li>
+                        <a href='/'>
+                            <%= texts.menu.home %>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= texts.menu.persianCats %>  <span class="caret"></span></a>
+                        <ul class="dropdown-menu" aria-labelledby="Persian cats">
+                            <li><a href='/browse?profile=persianMale"'><%= texts.menu.catsDropdown.males %></a></li>
+                            <li><a href='/browse?profile=persianFemale'><%= texts.menu.catsDropdown.females %></a></li>
+                            <li><a href='/browse?profile=persianNewBorn'><%= texts.menu.catsDropdown.newBorn %></a></li>
+                            <li><a href='/browse?profile=persianForSale'><%= texts.menu.catsDropdown.forSale %></a></li>
+                            <li><a href='/browse?profile=persianMyStars'><%= texts.menu.catsDropdown.myStars %></a></li>
+                            <li><a href='/catShows'><%= texts.menu.catsDropdown.shows %></a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= texts.menu.exoticCats %> <span class="caret"></span></a>
+                        <ul class="dropdown-menu" aria-labelledby="Persian cats">
+                            <li><a href='/browse?profile=exoticMale'><%= texts.menu.catsDropdown.males %></a></li>
+                            <li><a href='/browse?profile=exoticFemale'><%= texts.menu.catsDropdown.females %></a></li>
+                            <li><a href='/browse?profile=exoticNewBorn'><%= texts.menu.catsDropdown.newBorn %></a></li>
+                            <li><a href='/browse?profile=exoticForSale'><%= texts.menu.catsDropdown.forSale %></a></li>
+                            <li><a href='/browse?profile=exoticMyStars'><%= texts.menu.catsDropdown.myStars %></a></li>
+                            <li><a href='/catShows'><%= texts.menu.catsDropdown.shows %></a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= texts.menu.scottishCats %> <span class="caret"></span></a>
+                        <ul class="dropdown-menu" aria-labelledby="Persian cats">
+                            <li><a href='/browse?profile=scottishMale'><%= texts.menu.catsDropdown.males %></a></li>
+                            <li><a href='/browse?profile=scottishFemale'><%= texts.menu.catsDropdown.females %></a></li>
+                            <li><a href='/browse?profile=scottishNewBorn'><%= texts.menu.catsDropdown.newBorn %></a></li>
+                            <li><a href='/browse?profile=scottishForSale'><%= texts.menu.catsDropdown.forSale %></a></li>
+                            <li><a href='/browse?profile=scottishMyStars'><%= texts.menu.catsDropdown.myStars %></a></li>
+                            <li><a href='/catShows'><%= texts.menu.catsDropdown.shows %></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href='/contacts'>
+                            <%= texts.menu.contacts %>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='/articles'>
+                            <%= texts.menu.articles %>
+                        </a>
+                    </li>
+                    <li class="hidden-xs hidden-sm">
+                        <a class="img-language" style="padding-top: 5px;" href="?lang=en"><img src="/img/icon_usa1.png"></a>
+                    </li>
+                    <li class="hidden-xs hidden-sm">
+                        <a class="img-language" style="padding-top: 5px;" href="?lang=ua" ><img src="/img/icon_ukraine1.png"></a>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</header>

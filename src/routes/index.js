@@ -8,7 +8,7 @@ import Login from '../server/controllers/login';
 import SignUp from '../server/controllers/signUp';
 
 /* GET home page. */
-router.all('/', cache.route(), new Home().run);
+router.get('/', /*cache.route(),*/ new Home().run);
 router.post('/login', passport.authenticate('local'), new Login().run);
 router.post('/signup', new SignUp().run);
 router.get('/users', cache.route(), function(req, res, next) {

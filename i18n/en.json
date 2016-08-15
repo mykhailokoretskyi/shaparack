@@ -1,0 +1,60 @@
+{
+  "home":{
+    "happyClients":"HAPPY CLIENTS",
+    "title": "\"SHAPARACK\" cattery",
+    "welcome":"WELCOME TO",
+    "shaparackCattery":"\"SHAPARACK\" CATTERY",
+    "catBreeds":"EXOTIC, PERSIAN AND SCOTTISH CATS",
+    "forSale":"FOR SALE NOW",
+    "aboutUs":{
+      "header":"ABOUT US",
+      "text":{
+        "1":"My name is Maria Koretskaya and I am professional breeder, RUI cat shows judge and owner of \"Shaparack\" Cattery. Starting from 1990 my love to cats has become my hobby, my passion and the meaning of my life. I am one of the founders of The Odessa Cat Fanciers' Association and 8 years I was the President of it. For achievements I was granted high award RUI in 2015. You can discover pedigrees and photos of animals on the website. I am sorry there are no photos of some initial cats due to time issues. We are working on recovery of old photos. I am thankful to all breeders which gave me beautiful animals for my breeding program. Also I am so grateful to the developers of this website for possibility to systemize my animals",
+        "2":"\"Shaparack\" Cattery is located in the South of Ukraine, Odessa city region, near the Black Sea on the coast of Swan Lake. In genealogical lines of my pets there are ancestors from such known catteries as Katabears, Kittystone, Alomy, Genasaqua, Scrimshaw, Paselena, Charlina, Mountcascade, Careyata, Prancenpaw, Teahs, Brigantina, Oakheaven, Vita-Nova, Jadon, Sorrentina, Tehey, Ben Mar, Topcattery, Marhei etc. We grow cats by breed's standard of the CFA & RUI. Regularly pets are tested in veterinary clinics with international certificates.",
+        "3":"\"Shaparack\" cattery was registered in the \"ROLANDUS UNION INTERNATIONAL\" (RUI) since 1993, number 3 and in the \"Cat Fanciers' Association\" (CFA) since 2004. Cats eat only high quality food Royal Canin and meat. Pets are grown in ecological area with beautiful nature, fresh air and love. All vital vaccines are done",
+        "4":"The name of the \"Shaparack\" Cattery are well known through the world. I have happy clients in different countries. Follow me on my Facebook page and find out more",
+        "5":"With my experience I ship the pet directly to your country. I am familiar with all necessary documents"
+      }
+    }
+  },
+  "benefits":{
+    "label":"WHY CHOOSE US?",
+    "star":"SWEET FACES",
+    "support":"SUPPORT",
+    "health":"HEALTHY PETS",
+    "cfa":"CFA REGISTRATION",
+    "rui":"RUI REGISTRATION",
+    "food":"PREMIUM FOOD"
+  },
+  "menu":{
+    "articles":"Articles",
+    "home":"Home",
+    "persianCats":"Persian cats",
+    "exoticCats":"Exotic cats",
+    "scottishCats":"Scottish cats",
+    "contacts":"Contacts",
+    "location":"Odessa, Ukraine",
+    "followShaparack":"FOLLOW \"SHAPARACK\"",
+    "catsDropdown":{
+      "males":"Males",
+      "females":"Females",
+      "newBorn":"New born",
+      "forSale":"For sale",
+      "myStars":"My stars",
+      "shows":"Cat shows"
+    }
+  },
+  "info":{
+    "topic": {
+      "1": "\"SHAPARACK\" CATTERY - OUR STORY.",
+      "2": "MORE THAN 20 YEARS' EXPERIENCE OF BREEDING",
+      "3": "OUR STORY STARTING FROM 1991"
+    }
+  },
+  "footer":{
+    "designedBy":"designed by:"
+  },
+  "etc":{
+
+  }
+}

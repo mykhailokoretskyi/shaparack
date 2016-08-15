@@ -1,0 +1,26 @@
+.error-message {
+    text-align: center;
+}
+
+.error-message p {
+    line-height: 60px;
+}
+
+.verticalNavigation {
+    position: fixed;
+    right: 42px;
+    bottom: 100px;
+    font-size: 38px;
+}
+
+.verticalNavigation>div:hover {
+    background-color: lightgray;
+}
+
+.verticalNavigation .gotoTop {
+
+}
+
+.verticalNavigation .gotoBottom {
+
+}

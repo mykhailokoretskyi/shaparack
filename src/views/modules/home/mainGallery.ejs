@@ -1,0 +1,49 @@
+<div class="container-gallery">
+    <div class="gallery center-block hidden-xs hidden-sm" style="margin-bottom: 0px;">
+        <% mainGalleryImages.forEach(function(image, index){ %>
+        <div class="item  col-xs-4">
+            <img src='<%= image.path %>/<%= image.name %>'/>
+            <div class="grayouted"></div>
+        </div>
+        <% }) %>
+    </div>
+    <div class="gallery-mob center-block hidden-md hidden-lg">
+        <% mainGalleryImages.forEach(function(image, index){ %>
+        <div class="item  col-xs-10 col-xs-offset-1" >
+            <img src='<%= image.path %>/<%= image.name %>'/>
+        </div>
+        <% }) %>
+    </div>
+</div>
+
+<script>
+    jQuery(document).ready(function(){
+        $('.gallery').slick({
+            centerMode: true,
+            arrows: false,
+            slidesToShow: 1,
+            autoplay: true,
+            autoplaySpeed:2500,
+            speed: 500,
+            variableWidth: true,
+            accessibility: true,
+            dots: true,
+            focusOnSelect: true,
+            centerPadding: '0px'
+        });
+    });
+
+    jQuery(document).ready(function(){
+        $('.gallery-mob').slick({
+            arrows: false,
+            slidesToShow: 1,
+            autoplay: true,
+            autoplaySpeed:2500,
+            speed: 500,
+            accessibility: true,
+            dots: false
+        });
+    });
+</script>
+
+<div class="clearfix"></div>
