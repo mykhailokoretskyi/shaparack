@@ -3,9 +3,9 @@ var router = express.Router();
 
 import passport from 'passport';
 //import Account from '../src/server/mongo/model/account';
-import Home from '../src/server/controllers/home';
-import Login from '../src/server/controllers/login';
-import SignUp from '../src/server/controllers/signUp';
+import Home from '../server/controllers/home';
+import Login from '../server/controllers/login';
+import SignUp from '../server/controllers/signUp';
 
 /* GET home page. */
 router.all('/', new Home().run);

@@ -18,8 +18,8 @@ import Account from './src/server/mongo/model/account';
 
 var config = Config.getConfig();
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var routes = require('./src/routes/index');
+var users = require('./src/routes/users');
 
 mongoose.connect(`mongodb://${config.mongodb.domain}/${config.mongodb.database}`);
 var db = mongoose.connection;
@@ -33,7 +33,7 @@ db.once('open', () => {
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'src/views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
