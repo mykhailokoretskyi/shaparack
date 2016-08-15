@@ -2,6 +2,8 @@ var express = require('express');
 var path = require('path');
 import Config from './src/server/config';
 
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 var redis   = require("redis");
 var session = require('express-session');
 var redisStore = require('connect-redis')(session);
@@ -11,6 +13,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+
+import Account from './src/server/mongo/model/account';
 
 var config = Config.getConfig();
 
@@ -47,7 +51,14 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// passport config
+passport.use(new LocalStrategy(Account.authenticate()));
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
 
 app.use('/', routes);
 app.use('/users', users);

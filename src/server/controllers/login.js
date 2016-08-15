@@ -2,12 +2,14 @@
 
 import BaseController from './baseController';
 
-export default class Home extends BaseController {
+export default class Login extends BaseController {
     constructor() {
         super();
     }
 
     handler(req, res, next) {
-        res.render('index', { title: 'Express' });
+        const data = req.body;
+        console.log(data);
+        res.status(200).end();
     }
 }

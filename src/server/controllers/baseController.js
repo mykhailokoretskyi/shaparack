@@ -12,10 +12,11 @@ export default class BaseController {
             req.session.uuid = uuid.v4();
         }
 
-        console.log(req.session.uuid);
+        this.preProcess(req, res, next);
 
         this.handler(req, res, next);
     }
 
     handler() {}
+    preProcess() {}
 }
