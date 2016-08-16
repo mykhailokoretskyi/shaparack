@@ -14,8 +14,8 @@ const config = {
         }
     },
     cache: {
-        prefix: "default",
-        expire: 5000
+        prefix: "shaparack",
+        expire: 180
     },
     mysql: {
         connection: {
