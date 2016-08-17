@@ -58,6 +58,20 @@ export default class Cat extends MySQL {
         this.images = [];
     }
 
+    static BREEDS_MAPPING = {
+        exotic: "SELECT id FROM breeds WHERE code in ('EXO','EXO LH','EXO SH')",
+        persian: "SELECT id FROM breeds WHERE code in ('PER','PER 33')",
+        scottish: "SELECT id FROM breeds WHERE code in ('SFS','SFL','SSS','SSL')"
+    };
+
+    static TYPE_QUERIES = {
+        male: "gender = 'M' AND hidden = 'n'",
+        female: "gender = 'F' AND hidden = 'n'",
+        forSale: "is_for_sale = 'y'",
+        myStars: "is_my_star = 'y'",
+        newBorn: "is_new_born = 'y'"
+    };
+
     static load(id) {
         return new Promise((resolve, reject) => {
             const connection = Cat.getConnection();
@@ -85,6 +99,31 @@ export default class Cat extends MySQL {
                     });
                     Promise.all(cats).then(catsForSale => {
                         resolve(catsForSale);
+                    });
+                }
+            );
+        });
+    }
+
+    static loadCatsByQuery(query) {
+        const cats = [];
+        return new Promise((resolve, reject) => {
+            const breeds = Cat.BREEDS_MAPPING[query.breed],
+                typeCondition = Cat.TYPE_QUERIES[query.type];
+
+            const connection = Cat.getConnection();
+            connection.query(
+`SELECT * FROM cats
+ WHERE breed_id in (${breeds})
+    AND ${typeCondition}`,
+                (err, rows, fields) => {
+                    rows.forEach((row) => {
+                        const cat = new Cat(row);
+                        cats.push(cat.initDependencies());
+                    });
+                    Promise.all(cats).then(catList => {
+                        console.log(catList);
+                        resolve(catList);
                     });
                 }
             );

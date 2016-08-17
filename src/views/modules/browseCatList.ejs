@@ -1,0 +1,49 @@
+<div id="main-content">
+    <div class="page-header mgTop20">
+        <h1 class="welcome"><span class="welcome text-shadow font47px"><%= texts.browse.cattery %>: ${profileType1} ${profileType2}</span></h1>
+
+        <div class="col-md-offset-1 col-md-10">
+            <% if (lang == "ua" && query.type == "forSale") { %>
+            <div class="row">
+                <div class="col-xs-12 forSaleDescription">
+                    <%= texts.browse.forSaleDescription %>
+                </div>
+            </div>
+            <% } %>
+
+            <% cats.forEach(function(cat){ %>
+                <div class="row browseItem">
+                    <div class="col-md-offset-1 col-md-5 browseImg">
+                        <a href='/cat/<%= cat.id %>'>
+                            <% if (cat.images.length) { %>
+                                <img src='<%= cat.images[0].path %>/<%= cat.images[0].name %>' style="width: 100%;"/>
+                            <% } else { %>
+                                <img src='/resources/img/no_photo.jpg' style="width: 100%;"/>
+                            <% } %>
+                        </a>
+                    </div>
+                    <div class="col-md-6 browseInfo">
+                        <a class="catName" href='/cat/<%= cat.id %>'>
+                            <h3 class="fontWeight400 textBlack"><%= cat.name %></h3>
+                        </a>
+                        <br /><br />
+                        <p>${cat.breed.label} (${cat.breed.code})</p><p>${cat.color.label} (${cat.color.code})</p>
+                        <br />
+                        <!--<c:choose>-->
+                            <!--<c:when test="${locale.toString() eq 'ua'}">-->
+                                <!--<p>${cat.information.shortTextUa}</p>-->
+                            <!--</c:when>-->
+                            <!--<c:otherwise>-->
+                                <!--<p>${cat.information.shortTextEn}</p>-->
+                            <!--</c:otherwise>-->
+                        <!--</c:choose>-->
+                        <br />
+                        <a href='/cat/<%= cat.id %>'><h4><%= texts.browse.moreInformation %></h4></a>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="row"></div>
