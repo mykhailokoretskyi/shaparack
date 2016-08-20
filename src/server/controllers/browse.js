@@ -9,6 +9,10 @@ export default class Browse extends BaseController {
     }
 
     handler(req, res, next) {
+        if(!req.query.type || !req.query.breed){
+            res.redirect('/');
+            return;
+        }
         const promises = [
             Cat.loadCatsByQuery(req.query)
         ];

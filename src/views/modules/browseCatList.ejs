@@ -1,12 +1,21 @@
+<%
+    var plural = false;
+    if (query.type.match('forSale')){
+        plural = true;
+    }
+    var profileType1 = texts.browse[`${query.breed}` + (plural ? 's' : '')];
+    var profileType2 = texts.browse[query.type];
+%>
+
 <div id="main-content">
     <div class="page-header mgTop20">
-        <h1 class="welcome"><span class="welcome text-shadow font47px"><%= texts.browse.cattery %>: ${profileType1} ${profileType2}</span></h1>
+        <h1 class="welcome"><span class="welcome text-shadow font47px"><%= texts.browse.cattery %>: <%= profileType1 %> <%= profileType2 %></span></h1>
 
         <div class="col-md-offset-1 col-md-10">
             <% if (lang == "ua" && query.type == "forSale") { %>
             <div class="row">
                 <div class="col-xs-12 forSaleDescription">
-                    <%= texts.browse.forSaleDescription %>
+                    <%- texts.browse.forSaleDescription %>
                 </div>
             </div>
             <% } %>

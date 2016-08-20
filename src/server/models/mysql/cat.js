@@ -65,8 +65,8 @@ export default class Cat extends MySQL {
     };
 
     static TYPE_QUERIES = {
-        male: "gender = 'M' AND hidden = 'n'",
-        female: "gender = 'F' AND hidden = 'n'",
+        males: "gender = 'M' AND hidden = 'n'",
+        females: "gender = 'F' AND hidden = 'n'",
         forSale: "is_for_sale = 'y'",
         myStars: "is_my_star = 'y'",
         newBorn: "is_new_born = 'y'"
