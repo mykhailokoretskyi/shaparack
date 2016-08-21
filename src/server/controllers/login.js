@@ -9,7 +9,6 @@ export default class Login extends BaseController {
 
     handler(req, res, next) {
         const data = req.body;
-        console.log(data);
         res.status(200).end();
     }
 }

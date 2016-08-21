@@ -71,7 +71,19 @@
   "footer":{
     "designedBy":"designed by:"
   },
+  "seo":{
+    "general":{
+      "description":"Buy online exotic, persian, scottish cat or kitten in Shaparack cattery. Find the best cats for sale, choose breed, show or pet quality, browse pedigree, wait for a worldwide shipping and feel the love of your pet",
+      "title":"Shaparack Cattery | Cat Kitten for Sale | Exotic Persian Himalayan Scottish Cats |",
+      "keywords":""
+    },
+    "articles":{
+      "title":"Articles"
+    },
+    "info":{
+      "title":"Our Story"
+    }
+  },
   "etc":{
-
   }
 }

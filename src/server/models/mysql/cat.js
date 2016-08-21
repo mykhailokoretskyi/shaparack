@@ -122,7 +122,6 @@ export default class Cat extends MySQL {
                         cats.push(cat.initDependencies());
                     });
                     Promise.all(cats).then(catList => {
-                        console.log(catList);
                         resolve(catList);
                     });
                 }

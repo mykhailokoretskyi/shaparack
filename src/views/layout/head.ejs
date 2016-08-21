@@ -1,12 +1,107 @@
+<%
+    var profileType1, profileType2;
+    if (pageType == 'browse') {
+        var plural = false;
+        if (query.type.match('forSale')) {
+            plural = true;
+        }
+        profileType1 = texts.browse[`${query.breed}` + (plural ? 's' : '')];
+        profileType2 = texts.browse[query.type];
+    }
+%>
+
 <head>
+    <%
+        var pageTitle = '';
+        switch (pageType){
+            case 'adp':
+                pageTitle = `${article.heading} | ${article.seo.title} | ${texts.seo.articles.title} | Cattery Shaparack`;
+                break;
+            case 'articles':
+                pageTitle = `${texts.seo.articles.title} | Cattery Shaparack`;
+                break;
+            case 'cdp':
+                pageTitle = `${cat.name} | ${cat.breed.label} | Cattery Shaparack`;
+                break;
+            case 'browse':
+                pageTitle = `${profileType1} ${profileType2} | Cattery Shaparack`;
+                break;
+            case 'information':
+                pageTitle = `${texts.seo.info.title} | Cattery Shaparack`;
+                break;
+            case 'contacts':
+                pageTitle = `${texts.menu.contacts} | Cattery Shaparack`;
+                break;
+            default:
+                pageTitle = `${texts.seo.general.title}`
+                break;
+        }
+    %>
 
-    <title><%= texts.home.title %></title>
-    <meta property="og:url"           content="http://www.shaparack.com/" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="${pageTitle}" />
-    <meta property="og:description"   content='"Shaparack" Cattery' />
-    <meta property="og:image"         content="http://www.shaparack.com/resources/img/shaparack_facebook_1200_630.jpg" />
+    <%
+        var seoDescription, seoKeywords;
+        switch (pageType){
+            case 'adp':
+                seoDescription = article.seo.description;
+                seoKeywords = article.seo.keywords;
+                break;
+            default:
+                seoDescription = texts.seo.general.description;
+                seoKeywords = pageTitle.replace(" |","").replace(" ",", ");
+                break;
+        }
+    %>
 
+    <meta name="keywords" content="<%= seoKeywords %>">
+    <meta name="description" content="<%= seoDescription %>">
+
+    <title><%= pageTitle %></title>
+
+    <% if (pageType == 'home') { %>
+        <link rel="alternate" href="//www.shaparack.com?lang=ua" hreflang="ua" />
+        <link rel="alternate" href="//www.shaparack.com?lang=en" hreflang="en" />
+    <% } %>
+
+    <% if (facebook) {
+        switch (pageType) {
+            case 'cdp':
+    %>
+        <meta property="og:url"           content="http://www.shaparack.com/cat/${cat.id}" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="<%= pageTitle %>" />
+        <meta property="og:description"   content='<%= cat.name %>' />
+        <meta property="og:image"         content="http://www.shaparack.com<%= cat.images[0].path %>/<%= cat.images[0].name %>" />
+        <% if (cat.images[0].height && cat.images[0].width) { %>
+            <meta property="og:image:width"         content="<%= cat.images[0].width %>" />
+            <meta property="og:image:height"         content="<%= cat.images[0].height %>" />
+        <% } %>
+    <%
+                break;
+            case 'adp':
+    %>
+        <meta property="og:url"           content="http://www.shaparack.com/article/${article.id}" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="<%= pageTitle %>" />
+        <meta property="og:description"   content='<%= article.heading %>' />
+        <meta property="og:image"         content="http://www.shaparack.com<%= article.image.path %>/<%= article.image.name %>" />
+        <% if (article.image.height && article.image.width) { %>
+            <meta property="og:image:width"         content="<%= article.image.width %>" />
+            <meta property="og:image:height"         content="<%= article.image.height %>" />
+        <% } %>
+    <%
+                break;
+            default:
+    %>
+        <meta property="og:url"           content="http://www.shaparack.com/" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="<%= pageTitle %>" />
+        <meta property="og:description"   content='"Shaparack" Cattery' />
+        <meta property="og:image"         content="http://www.shaparack.com/resources/img/shaparack_facebook_1200_630.jpg" />
+    <%
+                break;
+            }
+        }
+    %>
 
     <meta name="google-site-verification" content="_Isq3SZQVacO0EE1QQinZsLMgTrQpub9r1CFCMgk7jA" />
     <link rel="icon" href="/favicon.png" type="image/png">

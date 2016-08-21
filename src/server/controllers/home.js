@@ -3,6 +3,7 @@
 import BaseController from './baseController';
 import Image from '../models/mysql/image';
 import Cat from '../models/mysql/cat';
+import _ from 'lodash';
 
 export default class Home extends BaseController {
     constructor() {
@@ -22,7 +23,7 @@ export default class Home extends BaseController {
                 catsForSale: values[1]
             };
 
-            res.render('home', pageData);
+            res.render('home', _.assign(res.pageData, pageData));
         });
     }
 }

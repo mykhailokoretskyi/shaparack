@@ -1,10 +1,13 @@
 <%
+var profileType1, profileType2;
+if (pageType == 'browse') {
     var plural = false;
-    if (query.type.match('forSale')){
+    if (query.type.match('forSale')) {
         plural = true;
     }
-    var profileType1 = texts.browse[`${query.breed}` + (plural ? 's' : '')];
-    var profileType2 = texts.browse[query.type];
+    profileType1 = texts.browse[`${query.breed}` + (plural ? 's' : '')];
+    profileType2 = texts.browse[query.type];
+}
 %>
 
 <div id="main-content">

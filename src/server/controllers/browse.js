@@ -2,6 +2,7 @@
 
 import BaseController from './baseController';
 import Cat from '../models/mysql/cat';
+import _ from 'lodash';
 
 export default class Browse extends BaseController {
     constructor() {
@@ -24,8 +25,7 @@ export default class Browse extends BaseController {
                 lang: req.i18n_lang,
                 query: req.query
             };
-            console.log(res);
-            res.render('browse', pageData);
+            res.render('browse', _.assign(res.pageData, pageData));
         });
     }
 }
