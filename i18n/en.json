@@ -84,6 +84,13 @@
       "title":"Our Story"
     }
   },
+  "contacts":{
+    "caption":"CONTACT \"SHAPARACK\" CATTERY",
+    "name":"Name",
+    "subject":"Subject",
+    "message":"Message",
+    "phone":"Phone"
+  },
   "etc":{
   }
 }
