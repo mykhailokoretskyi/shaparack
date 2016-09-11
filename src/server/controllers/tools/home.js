@@ -8,8 +8,8 @@ export default class Tools extends BaseController {
     }
 
     handler(req, res, next) {
-        if(!req.session.passport){
-            res.redirect("/login");
+        if (!res.pageData.pageSubType){
+            res.redirect("/tools/home");
             return;
         }
         res.render('tools');

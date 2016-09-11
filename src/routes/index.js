@@ -43,6 +43,7 @@ router.post(
     passport.authenticate('local'),
     new Login().run
 );
-router.post('/signup', new SignUp().run);
+
+//router.post('/signup', new SignUp().run);
 
 module.exports = router;

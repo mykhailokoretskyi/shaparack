@@ -16,6 +16,7 @@ export default class BaseController {
 
         const urlTokens = this.getUrlTokens(req);
         res.pageData.pageType = urlTokens[0] || 'home';
+        res.pageData.pageSubType = urlTokens[1];
         res.pageData.facebook = true;
 
         this.preProcess(req, res, next);
@@ -30,7 +31,7 @@ export default class BaseController {
     }
 
     getUrlTokens(req) {
-        const url = req.url;
+        const url = req.baseUrl + req.url;
         const replace = url.replace("/","");
         const split = replace.split("?");
         const urlTokens = split[0].split("/");

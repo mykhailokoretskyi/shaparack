@@ -7,9 +7,12 @@ export default class Login extends BaseController {
         super();
     }
 
-    handler(req, res, next) {
-        const data = req.body;
-        res.status(200).end();
+    POSThandler(req, res, next) {
+        const redirectTarget = req.session.requiredAuthFrom || '/';
+        if (req.session.passport){
+            delete req.session.requiredAuthFrom;
+        }
+        res.redirect(redirectTarget);
     }
 
     GEThandler(req, res, next) {
