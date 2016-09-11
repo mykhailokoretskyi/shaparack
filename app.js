@@ -20,7 +20,7 @@ import Account from './src/server/mongo/model/account';
 var config = Config.getConfig();
 
 var routes = require('./src/routes/index');
-var users = require('./src/routes/users');
+var toolsRoutes = require('./src/routes/tools');
 
 //////////////////////////////////////////////////////////
 mongoose.connect(`mongodb://${config.mongodb.domain}/${config.mongodb.database}`);
@@ -71,7 +71,7 @@ passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/tools', toolsRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

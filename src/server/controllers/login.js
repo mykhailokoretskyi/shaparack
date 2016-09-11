@@ -11,4 +11,8 @@ export default class Login extends BaseController {
         const data = req.body;
         res.status(200).end();
     }
+
+    GEThandler(req, res, next) {
+        res.render('login');
+    }
 }

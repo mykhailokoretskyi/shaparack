@@ -33,10 +33,16 @@ router.get(
     new Contacts().run
 );
 
-router.post('/login', passport.authenticate('local'), new Login().run);
+router.get(
+    '/login',
+    new Login().run
+);
+
+router.post(
+    '/login',
+    passport.authenticate('local'),
+    new Login().run
+);
 router.post('/signup', new SignUp().run);
-router.get('/users', cache.route(), function(req, res, next) {
-    res.send('respond with a resource');
-});
 
 module.exports = router;

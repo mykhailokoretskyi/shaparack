@@ -20,7 +20,13 @@ export default class BaseController {
 
         this.preProcess(req, res, next);
 
-        this.handler(req, res, next);
+        const handlerName = req.method + 'handler';
+
+        if (typeof this[handlerName] === 'function'){
+            this[handlerName](req, res, next);
+        } else {
+            this.handler(req, res, next);
+        }
     }
 
     getUrlTokens(req) {
