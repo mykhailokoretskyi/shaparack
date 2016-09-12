@@ -1,20 +1,95 @@
+<% var toolName = pageSubType %>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="icon" href="/favicon.png" type="image/png">
-    <link rel="shortcut icon" href="/favicon.png" type="image/png">
-    <script src="/js/lib/bootstrap.min.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Poiret+One&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <meta name="robots" content="none">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src='/js/lib/jquery-1.11.3.min.js'></script>
+    <script src='/js/lib/underscore-min.js'></script>
+    <script src='/js/lib/backbone-min.js'></script>
+    <script src='/js/lib/form2js.js'></script>
+    <script src='/js/lib/toObject.js'></script>
+    <script src='/js/baseWidget.js'></script>
+    <script src='/js/restWidget.js'></script>
 
-    <link rel="stylesheet" href="/css/lib/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script>
+        pageData = {
+            imageList:       <%= typeof jsonImageList !== 'undefined' ? jsonImageList : "{}" %>,
+            catList:         <%= typeof jsonCatList !== 'undefined' ? jsonCatList : "{}" %>,
+            titleList:       <%= typeof jsonTitleList !== 'undefined' ? jsonTitleList : "{}" %>,
+            colorList:       <%= typeof jsonColorList !== 'undefined' ? jsonColorList : "{}" %>,
+            breedList:       <%= typeof jsonBreedList !== 'undefined' ? jsonBreedList : "{}" %>,
+            personList:      <%= typeof jsonPersonList !== 'undefined' ? jsonPersonList : "{}" %>,
+            emptyObject: {}
+        };
+    </script>
+    <% if (toolName == 'cats') { %>
+        <% include("tools/templates/catsWidget") %>
+        <script src='/js/catsWidget.js'></script>
+        <script src='/js/catsImageWidget.js'></script>
+    <% } %>
+    <% if (toolName == 'breeds') { %>
+        <% include("tools/templates/breedsWidget") %>
+        <script src="/js/breedsWidget.js"></script>
+    <% } %>
+    <% if (toolName == 'colors') { %>
+        <% include("tools/templates/colorsWidget") %>
+        <script src="/js/colorsWidget.js"></script>
+    <% } %>
+    <% if (toolName == 'persons') { %>
+        <% include("tools/templates/personsWidget") %>
+        <script src="/js/personsWidget.js"></script>
+    <% } %>
+
+    <link rel="stylesheet" href='/css/lib/bootstrap.css'>
+    <link rel="stylesheet" href='/css/lib/bootstrap-theme.min.css'>
+    <link rel="stylesheet" href='/css/tools.css'>
+    <script src='/js/lib/bootstrap.min.js'></script>
 </head>
-<body class="vertical-align" style="background-color: #f5f5f5;">
-
-
+<body>
+<header>
+    <% include tools/header %>
+</header>
+<div class="container-fluid">
+    <div class="row">
+        <% include tools/leftMenu %>
+        <div class="col-sm-9">
+            <div class="container col-sm-12">
+                <% if ( typeof errorMessage !== 'undefined' ) { %>
+                    <div class="row">
+                        <div class="col-xs-12 error-message">
+                            <p class="bg-danger"><%= errorMessage %></p>
+                        </div>
+                    </div>
+                <% } %>
+                <% if ( typeof successMessage !== 'undefined' ) { %>
+                    <div class="row">
+                        <div class="col-xs-12 error-message">
+                            <p class="bg-success"><%= successMessage %></p>
+                        </div>
+                    </div>
+                <% } %>
+                <%- include("tools/modules/" + toolName, {}) %>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="verticalNavigation">
+    <div class="gotoTop"><span class="glyphicon glyphicon-arrow-up"></span></div>
+    <div class="gotoBottom"><span class="glyphicon glyphicon-arrow-down"></span></div>
+</div>
+<script>
+    $("div.gotoTop").click(function() {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        return false;
+    });
+    $("div.gotoBottom").click(function() {
+        $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+        return false;
+    });
+</script>
 </body>
 </html>
-

@@ -1,0 +1,15 @@
+<div class="col-sm-3">
+    <div class="container col-sm-12">
+        <div class="list-group">
+            <a href="/tools/home" class="list-group-item <% if (toolName == 'home') { %> disabled <% } %>"><span class="glyphicon glyphicon-home"></span> Tools menu</a>
+            <a href="/tools/messages" class="list-group-item <% if (toolName == 'messages') { %> disabled <% } %>"><span class="glyphicon glyphicon-envelope"></span> Сообщения<% if (typeof quantityOfNewMessages !== 'undefined' && quantityOfNewMessages > 0) { %><span class="badge">${quantityOfNewMessages}</span><% } %></a>
+            <a href="/tools/breeds" class="list-group-item <% if (toolName == 'breeds') { %> disabled <% } %>">Добавить Породы</a>
+            <a href="/tools/colors" class="list-group-item <% if (toolName == 'colors') { %> disabled <% } %>">Добавить Окрасы</a>
+            <a href="/tools/imageUpload" class="list-group-item <% if (toolName == 'upload') { %> disabled <% } %>">Загрузить фото</a>
+            <a href="/tools/persons" class="list-group-item <% if (toolName == 'persons') { %> disabled <% } %>">Добавить/Редактировать персону</a>
+            <a href="/tools/cats" class="list-group-item <% if (toolName == 'cats') { %> disabled <% } %>">Добавить/Редактировать животное</a>
+            <a href="/tools/catShows" class="list-group-item <% if (toolName == 'catShows') { %> disabled <% } %>">Добавить/Редактировать выставку</a>
+            <a href="/tools/articles" class="list-group-item <% if (toolName == 'articles') { %> disabled <% } %>">Статьи</a>
+        </div>
+    </div>
+</div>

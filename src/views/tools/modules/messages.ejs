@@ -1,0 +1,31 @@
+<div class="jumbotron">
+    <h2>Сообщения</h2>
+    <div class="col-md-offset-2 col-md-8">
+        <% if (action == 'list') { %>
+            <% messageList.forEach(function(mes){ %>
+                <div class="list-group">
+                    <a href='/tools/messages/<%= mes.id %>' class="list-group-item">
+                        <h4 class="list-group-item-heading"><%= mes.subject %> <% if (mes.isNew) { %><span class="label label-success">New</span><% } %></h4>
+                        <p class="list-group-item-text">
+                            <%= mes.message %>
+                        </p>
+                    </a>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <div>
+                <address>
+                    <strong><%= message.subject %></strong>
+                    <p><%= message.message %></p>
+                </address>
+
+                <address>
+                    <strong><%= message.name %></strong><br>
+                    <a href="mailto:<%= message.email %>"><%= message.email %></a>
+                </address>
+            </div>
+            <a class="btn btn-danger" href='/tools/messages/remove/<%= message.id %>'>Удалить <span class="glyphicon glyphicon-trash"></span></a>
+        <% } %>
+    </div>
+    <div class="clearfix"></div>
+</div>
