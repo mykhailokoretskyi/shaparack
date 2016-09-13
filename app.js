@@ -46,7 +46,12 @@ app.set('view engine', 'ejs');
 app.use(session({
     secret: config.session.secret,
     // create new redis store.
-    store: new redisStore({ host: config.session.redis.host, port: config.session.redis.host, client: client}),
+    store: new redisStore({
+        host: config.session.redis.host,
+        port: config.session.redis.host,
+        client: client,
+        ttl: config.session.redis.ttl
+    }),
     saveUninitialized: false,
     resave: false
 }));

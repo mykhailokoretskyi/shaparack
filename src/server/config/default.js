@@ -10,7 +10,8 @@ const config = {
         secret: "simple",
         redis: {
             host: "com.petmarket.local",
-            port: "6379"
+            port: "6379",
+            ttl: 1800
         }
     },
     cache: {
