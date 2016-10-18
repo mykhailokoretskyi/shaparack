@@ -3,7 +3,7 @@
 const config = {
     name: "misha",
     mongodb: {
-        domain: "com.shaparack.local",
+        domain: "com.petmarket.local",
         database: "shaparack"
     }
 };

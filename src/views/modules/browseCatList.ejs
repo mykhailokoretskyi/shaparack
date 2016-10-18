@@ -39,7 +39,8 @@ if (pageType == 'browse') {
                             <h3 class="fontWeight400 textBlack"><%= cat.name %></h3>
                         </a>
                         <br /><br />
-                        <p>${cat.breed.label} (${cat.breed.code})</p><p>${cat.color.label} (${cat.color.code})</p>
+                        <p><%= cat.breed.label %> (<%= cat.breed.code %>)</p>
+                        <p><%= cat.color.label %> (<%= cat.color.code %>)</p>
                         <br />
                         <!--<c:choose>-->
                             <!--<c:when test="${locale.toString() eq 'ua'}">-->

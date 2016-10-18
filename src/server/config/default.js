@@ -11,12 +11,12 @@ const config = {
         redis: {
             host: "com.petmarket.local",
             port: "6379",
-            ttl: 1800
+            ttl: 1
         }
     },
     cache: {
         prefix: "shaparack",
-        expire: 180
+        expire: 1
     },
     mysql: {
         connection: {
