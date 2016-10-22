@@ -82,4 +82,31 @@ export default class Image extends MySQL {
             );
         });
     }
+
+    static loadImagesForShow (showId){
+        if(!showId){
+            throw new Error("showId is missing. Cannot load images.");
+        }
+        const images = [];
+        return new Promise ((resolve, reject)=>{
+            const conection = Image.getConnection();
+            conection.query(`
+                SELECT * 
+                FROM images i
+                INNER JOIN (image_mappings im)
+                ON (i.id=im.image_id)
+                WHERE im.show_id=? 
+                    AND im.destination_id = (SELECT id
+                        FROM image_destinations 
+                        WHERE label = 'Show')`,
+                [showId],
+                (err, rows, fields)=>{
+                    rows.forEach((row)=>{
+                        images.push(new Image(row));
+                    });
+                    resolve(images);
+                }
+            );
+        });
+    }
 }
