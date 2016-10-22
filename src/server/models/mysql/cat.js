@@ -4,6 +4,7 @@ import MySQL from './mysql';
 import Image from './image';
 import Breed from './breed';
 import Color from './color';
+import CatInformation from './catInformation';
 
 export default class Cat extends MySQL {
     constructor(args) {
@@ -60,6 +61,7 @@ export default class Cat extends MySQL {
         this.images = [];
         this.breed = null;
         this.color = null;
+        this.catInformation = null;
     }
 
     static BREEDS_MAPPING = {
@@ -138,13 +140,15 @@ export default class Cat extends MySQL {
             const promises = [
                 Image.getImagesForCat(this.id),
                 Breed.load(this.breedId),
-                Color.load(this.colorId)
+                Color.load(this.colorId),
+                CatInformation.load(this.id)
             ];
 
             Promise.all(promises).then( values => {
                 this.images = values[0];
                 this.breed = values[1];
                 this.color = values[2];
+                this.catInformation = values[3];
                 resolve(this);
             });
         });

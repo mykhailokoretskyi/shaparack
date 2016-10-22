@@ -42,14 +42,11 @@ if (pageType == 'browse') {
                         <p><%= cat.breed.label %> (<%= cat.breed.code %>)</p>
                         <p><%= cat.color.label %> (<%= cat.color.code %>)</p>
                         <br />
-                        <!--<c:choose>-->
-                            <!--<c:when test="${locale.toString() eq 'ua'}">-->
-                                <!--<p>${cat.information.shortTextUa}</p>-->
-                            <!--</c:when>-->
-                            <!--<c:otherwise>-->
-                                <!--<p>${cat.information.shortTextEn}</p>-->
-                            <!--</c:otherwise>-->
-                        <!--</c:choose>-->
+                        <% if (lang == 'ua'){ %>
+                            <p><%= cat.catInformation.shortTextUa %></p>
+                        <% } else if (lang == 'en') { %>
+                            <p><%= cat.catInformation.shortTextEn %></p>
+                        <% } %>
                         <br />
                         <a href='/cat/<%= cat.id %>'><h4><%= texts.browse.moreInformation %></h4></a>
                     </div>
