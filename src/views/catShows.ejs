@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('layout/head') %>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="0">
+<%- include('layout/header') %>
+
+<%- include('modules/fb') %>
+
+<div id="main-content">
+    <div class="page-header mgTop20">
+        <h1 class="welcome">
+            <span class="welcome text-shadow font47px"><%= texts.browse.cattery %> : <%= texts.browse.catShows %></span>
+        </h1>
+        <div class="col-md-offset-1 col-md-10 col-xs-12">
+            <% shows.forEach(function (show){ %>
+                <div class="row show-item">
+                    <div class="col-md-12 show-title"><h3><%= show.title %></h3></div>
+                    <div class="col-md-12 show-text"><p><%= show.text %></p></div>
+                    <% if (show.images.length){ %>
+                        <div class="row show-images">
+                            <% var size = show.images.length %>
+                            <% var offset = (12 - size * 4)/2 %>
+                            <% if (offset > 0) { %>
+                                <div class="col-md-<%= Math.round(offset) %> hidden-xs"></div>
+                            <% } %>
+                            <% show.images.forEach(function (image){ %>
+                                <div class="col-md-4 col-xs-12 showImg">
+                                    <img src='<%= image.path %>/<%= image.name %>'/>
+                                </div>
+                            <% }) %>
+                        </div>
+                    <% } %>
+                    <% if (show.video){ %>
+                        <div class="col-md-offset-3 col-md-6 col-xs-12 show-video-container">
+                            <iframe src="https://www.youtube.com/embed/<%= show.video %>?enablejsapi=1" width="100%" height="300px"></iframe>
+                        </div>
+                    <% } %>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+
+<%- include('layout/footer') %>
+
+<%- include('layout/scrollListeners') %>
+
+</body>
+</html>

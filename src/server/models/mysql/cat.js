@@ -118,10 +118,10 @@ export default class Cat extends MySQL {
                 typeCondition = Cat.TYPE_QUERIES[query.type];
 
             const connection = Cat.getConnection();
-            connection.query(
-`SELECT * FROM cats
- WHERE breed_id in (${breeds})
-    AND ${typeCondition}`,
+            connection.query(`
+                SELECT * FROM cats
+                WHERE breed_id in (${breeds})
+                AND ${typeCondition}`,
                 (err, rows, fields) => {
                     rows.forEach((row) => {
                         const cat = new Cat(row);
